@@ -1,0 +1,1284 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<meta name="theme-color" content="#FDFBF7" />
+<meta name="robots" content="index,follow" />
+<meta name="author" content="Aide à Domicile — Guadeloupe" />
+<meta name="geo.region" content="GP" />
+<meta name="geo.placename" content="Guadeloupe" />
+
+<title>Aide aux personnes — Livraison de courses | Guadeloupe</title>
+<meta name="description" content="Service d'aide à la personne en Guadeloupe (971) : livraison de courses à domicile, dépannage express et accompagnement des personnes âgées à Pointe-à-Pitre, Le Gosier, Baie-Mahault, Basse-Terre. Intervention rapide, tarifs transparents. Devis gratuit." />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Aide aux personnes — Livraison de courses | Guadeloupe" />
+<meta property="og:description" content="Livraison de courses, dépannage express et aide aux personnes sur toute la Guadeloupe. Service rapide et de confiance." />
+<meta property="og:locale" content="fr_FR" />
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230B3D91'/%3E%3Cpath d='M20 24h24l-2 18a4 4 0 0 1-4 3.6H26a4 4 0 0 1-4-3.6Z' fill='none' stroke='%23F4B942' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M24 24a8 8 0 0 1 16 0' fill='none' stroke='%23F4B942' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Aide à Domicile Guadeloupe",
+  "image": "",
+  "description": "Service d'aide à la personne en Guadeloupe : livraison de courses, dépannage express et aide aux personnes âgées.",
+  "telephone": "+590690504455",
+  "address": {
+    "@type": "PostalAddress",
+    "addressRegion": "Guadeloupe",
+    "addressCountry": "FR"
+  },
+  "areaServed": ["Pointe-à-Pitre", "Le Gosier", "Baie-Mahault", "Basse-Terre", "Sainte-Anne", "Le Moule", "Petit-Bourg"],
+  "priceRange": "€€"
+}
+</script>
+
+<style>
+  /* ===========================================================
+     1. FOUNDATIONS
+     =========================================================== */
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI Variable", "Segoe UI", system-ui, Roboto, "Helvetica Neue", sans-serif;
+    font-feature-settings: "ss01","cv11","kern";
+    font-variant-ligatures: common-ligatures;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  :root {
+    /* Palette Guadeloupe — éditoriale */
+    --bg: #FDFBF7;
+    --bg-2: #F6F0E5;
+    --surface: #FFFFFF;
+    --ink: #1A1A1A;
+    --ink-2: #4A4A4A;
+    --ink-3: #8A8577;
+    --line: #E8E1D4;
+    --line-2: #F1EADB;
+    --azur: #0B3D91;
+    --azur-2: #1A4FAE;
+    --coral: #E54D3C;
+    --coral-2: #D13A2A;
+    --gold: #F4B942;
+    --gold-2: #E8A824;
+    --wa: #25D366;
+    --wa-2: #1EBE5C;
+    --shadow-soft: 0 1px 2px rgba(16,24,40,.04), 0 20px 40px -18px rgba(11,61,145,.12);
+    --shadow-card: 0 1px 2px rgba(16,24,40,.04), 0 28px 50px -24px rgba(20,32,56,.18);
+    --radius-xl: 28px;
+    --radius-lg: 20px;
+    --radius-md: 14px;
+    --radius-sm: 10px;
+    --ease: cubic-bezier(0.32,0.72,0,1);
+  }
+
+  img { max-width: 100%; height: auto; display: block; }
+  button { font: inherit; cursor: pointer; border: 0; background: none; color: inherit; }
+  a { color: inherit; text-decoration: none; }
+  h1, h2, h3, h4 { margin: 0; letter-spacing: -0.02em; line-height: 1.08; font-weight: 620; }
+  p { margin: 0; }
+
+  .wrap { width: 100%; max-width: 1240px; margin-inline: auto; padding-inline: 20px; }
+  @media (min-width: 768px) { .wrap { padding-inline: 32px; } }
+
+  /* Noise subtile (performance safe, fixed layer) */
+  .grain {
+    position: fixed; inset: 0; z-index: 80; pointer-events: none;
+    opacity: .035; mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
+
+  /* Entrée viewport */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .9s var(--ease), transform .9s var(--ease); }
+  .reveal.in { opacity: 1; transform: none; }
+  .reveal.d1 { transition-delay: .08s; }
+  .reveal.d2 { transition-delay: .16s; }
+  .reveal.d3 { transition-delay: .24s; }
+  .reveal.d4 { transition-delay: .32s; }
+
+  /* ===========================================================
+     2. HEADER / NAV ÎLOT FLOTTANT
+     =========================================================== */
+  .header {
+    position: fixed; top: 14px; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: center;
+    pointer-events: none;
+  }
+  .nav {
+    pointer-events: auto;
+    display: flex; align-items: center; gap: 14px;
+    padding: 8px 8px 8px 18px;
+    background: rgba(253, 251, 247, .72);
+    -webkit-backdrop-filter: saturate(1.3) blur(18px);
+    backdrop-filter: saturate(1.3) blur(18px);
+    border: 1px solid rgba(26,26,26,.07);
+    border-radius: 999px;
+    box-shadow: 0 1px 0 rgba(255,255,255,.7) inset, 0 14px 30px -14px rgba(11,61,145,.18);
+    width: calc(100% - 28px);
+    max-width: 760px;
+    justify-content: space-between;
+  }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 620; letter-spacing: -0.01em; }
+  .brand-mark {
+    width: 30px; height: 30px; border-radius: 9px;
+    background: linear-gradient(135deg, var(--azur), var(--azur-2));
+    display: grid; place-items: center; color: var(--gold);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.25);
+  }
+  .brand-mark svg { width: 16px; height: 16px; }
+  .brand-name { font-size: 15px; }
+  .brand-tag { display: none; color: var(--ink-3); font-size: 12px; padding-left: 10px; margin-left: 4px; border-left: 1px solid var(--line); }
+  @media (min-width: 640px) { .brand-tag { display: inline-block; } }
+
+  .nav-cta {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 9px 10px 9px 16px;
+    background: var(--ink); color: var(--bg);
+    border-radius: 999px;
+    font-size: 14px; font-weight: 560;
+    transition: transform .4s var(--ease), background .3s var(--ease);
+  }
+  .nav-cta:hover { background: var(--azur); }
+  .nav-cta:active { transform: scale(.97); }
+  .nav-cta-icon {
+    width: 26px; height: 26px; border-radius: 999px;
+    background: rgba(255,255,255,.12);
+    display: grid; place-items: center;
+    transition: transform .45s var(--ease);
+  }
+  .nav-cta:hover .nav-cta-icon { transform: translate(2px,-1px); }
+  .nav-cta-num { display: none; }
+  @media (min-width: 520px) { .nav-cta-num { display: inline; } }
+
+  /* ===========================================================
+     3. HERO — EDITORIAL SPLIT
+     =========================================================== */
+  .hero {
+    padding: 120px 0 72px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: "";
+    position: absolute; inset: auto -10% -40% auto;
+    width: 60vmax; height: 60vmax; border-radius: 50%;
+    background: radial-gradient(closest-side, rgba(244,185,66,.28), rgba(244,185,66,0) 70%);
+    filter: blur(4px);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: "";
+    position: absolute; inset: -20% auto auto -15%;
+    width: 55vmax; height: 55vmax; border-radius: 50%;
+    background: radial-gradient(closest-side, rgba(11,61,145,.16), rgba(11,61,145,0) 70%);
+    pointer-events: none;
+  }
+  .hero-grid {
+    position: relative; z-index: 1;
+    display: grid; grid-template-columns: 1fr; gap: 56px; align-items: center;
+  }
+  @media (min-width: 980px) {
+    .hero { padding: 160px 0 100px; }
+    .hero-grid { grid-template-columns: 1.1fr .9fr; gap: 72px; }
+  }
+
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 6px 12px; border-radius: 999px;
+    background: rgba(11,61,145,.06);
+    border: 1px solid rgba(11,61,145,.14);
+    color: var(--azur);
+    font-size: 11px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase;
+  }
+  .eyebrow .dot { width: 6px; height: 6px; border-radius: 99px; background: var(--coral); box-shadow: 0 0 0 0 rgba(229,77,60,.5); animation: pulse 2.4s var(--ease) infinite; }
+  @keyframes pulse { 0%{box-shadow:0 0 0 0 rgba(229,77,60,.5);} 70%{box-shadow:0 0 0 10px rgba(229,77,60,0);} 100%{box-shadow:0 0 0 0 rgba(229,77,60,0);} }
+
+  .hero h1 {
+    font-size: clamp(2.6rem, 5.8vw + .2rem, 5.1rem);
+    letter-spacing: -0.035em;
+    margin: 22px 0 18px;
+    font-weight: 620;
+  }
+  .hero h1 .u {
+    background: linear-gradient(180deg, transparent 62%, rgba(244,185,66,.55) 62%, rgba(244,185,66,.55) 92%, transparent 92%);
+    padding: 0 .08em;
+  }
+  .hero h1 em { font-style: normal; color: var(--azur); }
+  .hero-lead {
+    font-size: clamp(1.05rem, 1.1vw + .8rem, 1.22rem);
+    color: var(--ink-2);
+    max-width: 58ch;
+    line-height: 1.55;
+  }
+
+  .cta-row { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 32px; }
+
+  .btn {
+    position: relative;
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 14px 14px 14px 22px;
+    border-radius: 999px;
+    font-weight: 560; font-size: 15px;
+    transition: transform .45s var(--ease), box-shadow .45s var(--ease), background .3s var(--ease);
+    will-change: transform;
+  }
+  .btn:active { transform: scale(.98); }
+  .btn-primary {
+    background: var(--ink); color: var(--bg);
+    box-shadow: 0 1px 0 rgba(255,255,255,.08) inset, 0 18px 30px -12px rgba(11,61,145,.35);
+  }
+  .btn-primary:hover { background: var(--azur); }
+  .btn-icon {
+    width: 34px; height: 34px; border-radius: 999px;
+    background: rgba(255,255,255,.14);
+    display: grid; place-items: center;
+    transition: transform .5s var(--ease);
+  }
+  .btn-primary:hover .btn-icon { transform: translate(2px,-1px) rotate(-8deg); }
+  .btn-icon svg { width: 16px; height: 16px; }
+
+  .btn-wa {
+    background: var(--wa); color: #fff;
+    box-shadow: 0 1px 0 rgba(255,255,255,.2) inset, 0 18px 30px -12px rgba(37,211,102,.45);
+  }
+  .btn-wa:hover { background: var(--wa-2); }
+  .btn-wa .btn-icon { background: rgba(255,255,255,.2); }
+
+  .hero-proof {
+    display: flex; flex-wrap: wrap; gap: 28px 34px;
+    margin-top: 42px; padding-top: 28px; border-top: 1px solid var(--line);
+    color: var(--ink-2); font-size: 14px;
+  }
+  .hero-proof div { display: flex; align-items: center; gap: 8px; }
+  .hero-proof svg { width: 16px; height: 16px; color: var(--azur); flex: 0 0 auto; }
+
+  /* HERO VISUAL — photo avec cartes flottantes */
+  .hero-visual {
+    position: relative; aspect-ratio: 4/5; max-width: 520px; width: 100%; justify-self: center;
+  }
+  .hv-frame {
+    position: absolute; inset: 0;
+    padding: 6px;
+    border-radius: 34px;
+    background: linear-gradient(180deg, rgba(26,26,26,.08), rgba(26,26,26,.02));
+    border: 1px solid rgba(26,26,26,.08);
+    box-shadow: 0 1px 0 rgba(255,255,255,.6) inset, 0 40px 80px -28px rgba(11,61,145,.45);
+  }
+  .hv-photo {
+    position: relative; width: 100%; height: 100%;
+    border-radius: calc(34px - 6px);
+    overflow: hidden;
+    background: linear-gradient(160deg, #0B3D91, #08306E);
+  }
+  .hv-photo img {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover;
+  }
+  .hv-photo::after {
+    content: ""; position: absolute; inset: 0;
+    background:
+      linear-gradient(180deg, rgba(11,61,145,.10) 0%, transparent 30%, transparent 60%, rgba(8,30,80,.55) 100%);
+    pointer-events: none;
+  }
+  .hv-tag {
+    position: absolute; left: 18px; top: 18px;
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 8px 12px 8px 10px; border-radius: 999px;
+    background: rgba(255,255,255,.88);
+    -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+    font-size: 12px; font-weight: 600; color: var(--ink);
+    box-shadow: 0 8px 20px -10px rgba(11,61,145,.35);
+    z-index: 2;
+  }
+  .hv-tag .d { width: 8px; height: 8px; border-radius: 999px; background: var(--coral); box-shadow: 0 0 0 0 rgba(229,77,60,.5); animation: pulse 2.4s var(--ease) infinite; }
+
+  .hv-card {
+    position: absolute;
+    background: #fff; border-radius: 18px;
+    padding: 14px 16px;
+    display: flex; align-items: center; gap: 12px;
+    box-shadow: 0 1px 0 rgba(255,255,255,.6) inset, 0 18px 34px -14px rgba(13,20,50,.35);
+    font-size: 13.5px;
+    z-index: 2;
+  }
+  .hv-card .ic {
+    width: 38px; height: 38px; border-radius: 12px;
+    display: grid; place-items: center;
+    flex: 0 0 auto;
+  }
+  .hv-card .ic svg { width: 18px; height: 18px; }
+  .hv-card b { font-weight: 620; letter-spacing: -.01em; display: block; }
+  .hv-card span { color: var(--ink-3); font-size: 12.5px; }
+
+  .hv-1 { top: 28%; left: -8%; transform: rotate(-3deg); animation: floatA 7s var(--ease) infinite alternate; }
+  .hv-1 .ic { background: rgba(11,61,145,.08); color: var(--azur); }
+  .hv-2 { bottom: 8%; right: -6%; transform: rotate(3deg); animation: floatB 8s var(--ease) infinite alternate; }
+  .hv-2 .ic { background: rgba(37,211,102,.12); color: #1EBE5C; }
+  @keyframes floatA { from { transform: translateY(0) rotate(-3deg);} to { transform: translateY(-8px) rotate(-3deg);} }
+  @keyframes floatB { from { transform: translateY(0) rotate(3deg);} to { transform: translateY(8px) rotate(3deg);} }
+
+  @media (max-width: 640px) {
+    .hv-1, .hv-2 { transform: none !important; animation: none; }
+    .hv-1 { left: 4%; top: 6%; }
+    .hv-2 { right: 4%; bottom: 6%; }
+  }
+
+  /* ===========================================================
+     4. SECTIONS (base)
+     =========================================================== */
+  section { padding: 100px 0; position: relative; }
+  @media (max-width: 720px) { section { padding: 72px 0; } }
+
+  .sec-head { max-width: 780px; margin-bottom: 54px; }
+  .sec-head h2 {
+    font-size: clamp(2rem, 3.6vw + .3rem, 3.3rem);
+    font-weight: 620;
+    margin: 16px 0 14px;
+    letter-spacing: -0.03em;
+  }
+  .sec-head p { color: var(--ink-2); font-size: 1.06rem; max-width: 62ch; }
+
+  /* ===========================================================
+     5. SERVICES — BENTO ASYMÉTRIQUE
+     =========================================================== */
+  .bento {
+    display: grid; gap: 18px;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 820px) {
+    .bento { grid-template-columns: repeat(3, 1fr); gap: 22px; align-items: stretch; }
+  }
+
+  .svc {
+    /* double-bezel : outer shell + inner core */
+    position: relative;
+    padding: 6px;
+    border-radius: 28px;
+    background: linear-gradient(180deg, rgba(26,26,26,.04), rgba(26,26,26,.015));
+    border: 1px solid rgba(26,26,26,.06);
+    transition: transform .5s var(--ease), box-shadow .5s var(--ease);
+  }
+  .svc:hover { transform: translateY(-4px); box-shadow: var(--shadow-card); }
+  .svc-inner {
+    position: relative; overflow: hidden;
+    background: var(--surface);
+    border-radius: calc(28px - 6px);
+    padding: 30px;
+    display: flex; flex-direction: column; gap: 18px;
+    height: 100%;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.8);
+  }
+  .svc-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 5px 10px; border-radius: 999px;
+    font-size: 11px; letter-spacing: .14em; text-transform: uppercase; font-weight: 600;
+    width: max-content;
+  }
+  .svc-1 .svc-badge { background: rgba(11,61,145,.08); color: var(--azur); }
+  .svc-2 .svc-badge { background: rgba(229,77,60,.10); color: var(--coral); }
+  .svc-3 .svc-badge { background: rgba(244,185,66,.18); color: #9C6B0F; }
+
+  .svc h3 {
+    font-size: clamp(1.35rem, 1.2vw + .8rem, 1.75rem);
+    letter-spacing: -0.02em;
+    font-weight: 620;
+  }
+  .svc p { color: var(--ink-2); font-size: .98rem; line-height: 1.6; }
+  .svc ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+  .svc ul li {
+    display: flex; gap: 10px; align-items: center;
+    color: var(--ink-2); font-size: .93rem;
+  }
+  .svc ul li svg { width: 14px; height: 14px; flex: 0 0 auto; color: var(--azur); }
+
+  .svc-art {
+    margin-top: auto;
+    position: relative;
+    border-radius: 18px;
+    aspect-ratio: 16/10;
+    overflow: hidden;
+    background: var(--bg-2);
+  }
+  .svc-art img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform .8s var(--ease);
+  }
+  .svc:hover .svc-art img { transform: scale(1.04); }
+  .svc-art::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 40%, rgba(20,28,56,.28));
+    pointer-events: none;
+  }
+  .svc-1 .svc-art::before,
+  .svc-2 .svc-art::before,
+  .svc-3 .svc-art::before {
+    content: ""; position: absolute; inset: 0; z-index: 1;
+    mix-blend-mode: multiply;
+    pointer-events: none;
+  }
+  .svc-1 .svc-art::before { background: linear-gradient(160deg, rgba(11,61,145,.18), transparent 60%); }
+  .svc-2 .svc-art::before { background: linear-gradient(160deg, rgba(229,77,60,.14), transparent 60%); }
+  .svc-3 .svc-art::before { background: linear-gradient(160deg, rgba(244,185,66,.18), transparent 60%); }
+
+  /* ===========================================================
+     6. POURQUOI — 3 colonnes asymétriques
+     =========================================================== */
+  .pourquoi {
+    background: var(--bg-2);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .why-grid {
+    display: grid; gap: 18px; grid-template-columns: 1fr;
+  }
+  @media (min-width: 820px) {
+    .why-grid { grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  }
+  .why-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    padding: 28px 26px;
+    display: flex; flex-direction: column; gap: 14px;
+    transition: transform .5s var(--ease);
+    box-shadow: 0 1px 0 rgba(255,255,255,.7) inset, 0 18px 40px -30px rgba(11,61,145,.18);
+  }
+  .why-card:hover { transform: translateY(-3px); }
+  .why-num {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: ui-monospace, "SF Mono", "JetBrains Mono", Consolas, monospace;
+    font-size: 12px; color: var(--ink-3); letter-spacing: .18em;
+  }
+  .why-num span { width: 28px; height: 1px; background: var(--line); display: inline-block; }
+  .why-card h3 { font-size: 1.35rem; font-weight: 620; letter-spacing: -.02em; }
+  .why-card p { color: var(--ink-2); font-size: .96rem; line-height: 1.6; }
+  .why-card .ic {
+    width: 46px; height: 46px; border-radius: 14px;
+    display: grid; place-items: center;
+    background: rgba(11,61,145,.06); color: var(--azur);
+  }
+  .why-card.c2 .ic { background: rgba(229,77,60,.08); color: var(--coral); }
+  .why-card.c3 .ic { background: rgba(244,185,66,.18); color: #9C6B0F; }
+  .why-card .ic svg { width: 22px; height: 22px; }
+
+  /* ===========================================================
+     7. TARIFS
+     =========================================================== */
+  .pricing {
+    display: grid; gap: 18px;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 820px) {
+    .pricing { grid-template-columns: repeat(3, 1fr); gap: 22px; align-items: stretch; }
+  }
+  .price-card {
+    position: relative;
+    padding: 6px;
+    border-radius: 28px;
+    background: linear-gradient(180deg, rgba(26,26,26,.04), rgba(26,26,26,.015));
+    border: 1px solid rgba(26,26,26,.06);
+    transition: transform .5s var(--ease);
+  }
+  .price-card:hover { transform: translateY(-4px); }
+  .price-card-inner {
+    background: var(--surface);
+    border-radius: calc(28px - 6px);
+    padding: 30px;
+    height: 100%;
+    display: flex; flex-direction: column; gap: 18px;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.8);
+  }
+  .price-card.featured { background: linear-gradient(180deg, var(--azur), var(--azur-2)); border-color: var(--azur); }
+  .price-card.featured .price-card-inner { background: #071F52; color: #fff; }
+  .price-card.featured .price-card-inner * { color: #fff; }
+  .price-card.featured .price-label { color: var(--gold) !important; }
+  .price-card.featured .price-hr { background: rgba(255,255,255,.14); }
+  .price-card.featured .price-feat svg { color: var(--gold); }
+
+  .price-label {
+    font-size: 12px; letter-spacing: .18em; text-transform: uppercase; font-weight: 600;
+    color: var(--azur);
+  }
+  .price-card h3 { font-size: 1.45rem; letter-spacing: -.02em; }
+  .price-amount {
+    display: flex; align-items: baseline; gap: 6px;
+    font-family: ui-monospace, "SF Mono", Consolas, monospace;
+  }
+  .price-amount .from { font-size: 13px; color: var(--ink-3); text-transform: uppercase; letter-spacing: .12em; }
+  .price-amount .n {
+    font-size: clamp(2.4rem, 3.2vw, 3.2rem); font-weight: 560; letter-spacing: -.04em; color: var(--ink);
+    font-family: inherit;
+  }
+  .price-card.featured .price-amount .n { color: #fff; }
+  .price-amount .u { color: var(--ink-2); font-size: .95rem; }
+  .price-hr { height: 1px; background: var(--line); width: 100%; }
+  .price-feat { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+  .price-feat li { display: flex; gap: 10px; align-items: center; font-size: .95rem; color: var(--ink-2); }
+  .price-feat li svg { width: 14px; height: 14px; color: var(--azur); flex: 0 0 auto; }
+  .price-card .btn { width: 100%; justify-content: space-between; }
+  .price-card .btn-outline {
+    background: transparent; color: var(--ink);
+    border: 1px solid var(--line);
+  }
+  .price-card .btn-outline:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .price-card.featured .btn { background: var(--gold); color: #1A1A1A; box-shadow: 0 18px 30px -12px rgba(244,185,66,.55); }
+  .price-card.featured .btn:hover { background: #fff; }
+  .price-card.featured .btn-icon { background: rgba(0,0,0,.08); }
+
+  .tarifs-note {
+    margin-top: 22px; color: var(--ink-3); font-size: .88rem;
+  }
+
+  /* ===========================================================
+     8. AVIS CLIENTS
+     =========================================================== */
+  .reviews {
+    background: var(--bg-2);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .reviews-grid { display: grid; gap: 18px; grid-template-columns: 1fr; }
+  @media (min-width: 820px) { .reviews-grid { grid-template-columns: repeat(3, 1fr); gap: 22px; } }
+
+  .review {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    padding: 26px 26px 24px;
+    display: flex; flex-direction: column; gap: 18px;
+    box-shadow: 0 1px 0 rgba(255,255,255,.7) inset, 0 20px 40px -30px rgba(11,61,145,.2);
+    transition: transform .5s var(--ease);
+  }
+  .review:hover { transform: translateY(-3px); }
+  .stars { display: inline-flex; gap: 2px; color: var(--gold-2); }
+  .stars svg { width: 15px; height: 15px; }
+  .review-quote { font-size: 1.02rem; line-height: 1.6; color: var(--ink); font-weight: 480; }
+  .review-quote::before { content: "« "; color: var(--ink-3); }
+  .review-quote::after { content: " »"; color: var(--ink-3); }
+  .review-foot { display: flex; align-items: center; gap: 12px; margin-top: auto; }
+  .avatar {
+    width: 44px; height: 44px; border-radius: 999px;
+    display: grid; place-items: center;
+    color: #fff; font-weight: 620; font-size: 15px; letter-spacing: -.01em;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.25), 0 8px 18px -8px rgba(0,0,0,.25);
+  }
+  .avatar.a1 { background: linear-gradient(135deg, #0B3D91, #1A4FAE); }
+  .avatar.a2 { background: linear-gradient(135deg, #E54D3C, #F4B942); }
+  .avatar.a3 { background: linear-gradient(135deg, #1A8752, #7BB36A); }
+  .review-who b { display: block; font-weight: 600; font-size: .95rem; }
+  .review-who span { color: var(--ink-3); font-size: .84rem; }
+
+  /* ===========================================================
+     9. CONTACT
+     =========================================================== */
+  .contact-grid {
+    display: grid; gap: 32px; grid-template-columns: 1fr; align-items: start;
+  }
+  @media (min-width: 980px) {
+    .contact-grid { grid-template-columns: 1fr 1.1fr; gap: 56px; }
+  }
+
+  .contact-card {
+    background: linear-gradient(160deg, #0B3D91 0%, #0A3380 100%);
+    color: #fff; border-radius: 28px; padding: 34px;
+    position: relative; overflow: hidden;
+    box-shadow: 0 1px 0 rgba(255,255,255,.15) inset, 0 30px 50px -25px rgba(11,61,145,.45);
+  }
+  .contact-card::before {
+    content: "";
+    position: absolute; inset: auto -20% -30% auto;
+    width: 260px; height: 260px; border-radius: 50%;
+    background: radial-gradient(closest-side, rgba(244,185,66,.4), transparent 70%);
+  }
+  .contact-card h3 { font-size: 1.6rem; letter-spacing: -.02em; margin-bottom: 8px; }
+  .contact-card p { color: rgba(255,255,255,.78); font-size: .96rem; }
+  .contact-phone {
+    position: relative; z-index: 1;
+    display: flex; align-items: center; gap: 14px;
+    margin: 24px 0 18px;
+    padding: 16px 16px 16px 20px;
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.14);
+    border-radius: 18px;
+    transition: background .4s var(--ease);
+  }
+  .contact-phone:hover { background: rgba(255,255,255,.14); }
+  .contact-phone .ic {
+    width: 42px; height: 42px; border-radius: 12px;
+    background: var(--gold); color: #1A1A1A;
+    display: grid; place-items: center; flex: 0 0 auto;
+  }
+  .contact-phone .ic svg { width: 20px; height: 20px; }
+  .contact-phone b { display: block; font-size: 1.4rem; letter-spacing: -.02em; font-weight: 620; font-family: ui-monospace, "SF Mono", Consolas, monospace; }
+  .contact-phone span { font-size: 12px; color: rgba(255,255,255,.7); letter-spacing: .14em; text-transform: uppercase; }
+  .contact-wa { position: relative; z-index: 1; width: 100%; justify-content: space-between; }
+  .contact-info-list { position: relative; z-index: 1; margin-top: 28px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.14); display: grid; gap: 14px; list-style: none; padding-left: 0; }
+  .contact-info-list li { display: flex; gap: 10px; align-items: flex-start; color: rgba(255,255,255,.85); font-size: .93rem; }
+  .contact-info-list li svg { width: 16px; height: 16px; color: var(--gold); flex: 0 0 auto; margin-top: 3px; }
+
+  /* Form */
+  form {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 28px;
+    padding: 30px;
+    box-shadow: 0 1px 0 rgba(255,255,255,.7) inset, 0 30px 50px -30px rgba(11,61,145,.18);
+    display: flex; flex-direction: column; gap: 16px;
+  }
+  .field { display: flex; flex-direction: column; gap: 6px; }
+  .field label {
+    font-size: .82rem; letter-spacing: .04em; color: var(--ink-2); font-weight: 560;
+  }
+  .field input, .field textarea {
+    font: inherit;
+    padding: 13px 14px;
+    border-radius: 12px;
+    border: 1px solid var(--line);
+    background: var(--bg);
+    color: var(--ink);
+    transition: border-color .3s var(--ease), box-shadow .3s var(--ease), background .3s var(--ease);
+    resize: vertical;
+    width: 100%;
+  }
+  .field input:focus, .field textarea:focus {
+    outline: none;
+    border-color: var(--azur);
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(11,61,145,.08);
+  }
+  .field textarea { min-height: 118px; line-height: 1.55; }
+  .field-row { display: grid; grid-template-columns: 1fr; gap: 16px; }
+  @media (min-width: 560px) { .field-row { grid-template-columns: 1fr 1fr; } }
+
+  .form-submit { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; justify-content: space-between; margin-top: 4px; }
+  .form-submit small { color: var(--ink-3); font-size: .82rem; }
+  .form-feedback { display: none; padding: 14px; border-radius: 12px; font-size: .92rem; }
+  .form-feedback.ok { display: block; background: #EAF4EC; color: #1A6E3A; border: 1px solid #BFDDC4; }
+  .form-feedback.err { display: block; background: #FCEAE6; color: #9B2A1B; border: 1px solid #EFBFB4; }
+
+  /* ===========================================================
+     10. FOOTER
+     =========================================================== */
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 56px 0 40px;
+    color: var(--ink-3);
+    font-size: .9rem;
+  }
+  .footer-top {
+    display: grid; gap: 24px; grid-template-columns: 1fr;
+    margin-bottom: 40px;
+  }
+  @media (min-width: 820px) {
+    .footer-top { grid-template-columns: 1.3fr .7fr .7fr; }
+  }
+  .footer-brand { display: flex; align-items: center; gap: 12px; color: var(--ink); margin-bottom: 14px; font-weight: 620; }
+  .footer h4 { font-size: .82rem; letter-spacing: .18em; text-transform: uppercase; color: var(--ink); margin-bottom: 14px; font-weight: 600; }
+  .footer-col ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+  .footer-col a:hover { color: var(--azur); }
+  .footer-bottom { display: flex; flex-wrap: wrap; gap: 14px; justify-content: space-between; padding-top: 24px; border-top: 1px solid var(--line-2); font-size: .83rem; }
+
+  /* Sticky WhatsApp mobile */
+  .sticky-wa {
+    position: fixed; right: 16px; bottom: 20px; z-index: 90;
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 16px 12px 14px;
+    background: var(--wa); color: #fff;
+    border-radius: 999px; font-weight: 560; font-size: 14px;
+    box-shadow: 0 1px 0 rgba(255,255,255,.2) inset, 0 14px 30px -10px rgba(37,211,102,.55);
+    transition: transform .4s var(--ease), background .3s var(--ease);
+  }
+  .sticky-wa svg { width: 18px; height: 18px; }
+  .sticky-wa:hover { background: var(--wa-2); }
+  .sticky-wa:active { transform: scale(.96); }
+  .sticky-wa .lbl { display: none; }
+  @media (min-width: 520px) { .sticky-wa .lbl { display: inline; } }
+
+  /* Respect motion settings */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; }
+    .reveal { opacity: 1; transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ================================ HEADER ================================ -->
+<header class="header" role="banner">
+  <nav class="nav" aria-label="Navigation principale">
+    <a class="brand" href="#top" aria-label="Aide à Domicile Guadeloupe, retour à l'accueil">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 7h16l-1.5 11a2 2 0 0 1-2 1.8H7.5a2 2 0 0 1-2-1.8Z"/>
+          <path d="M8 7a4 4 0 0 1 8 0"/>
+        </svg>
+      </span>
+      <span class="brand-name">Aide à Domicile</span>
+      <span class="brand-tag">Guadeloupe · 971</span>
+    </a>
+    <a class="nav-cta" href="tel:+590690504455" aria-label="Appeler le 0690 50 44 55">
+      <span class="nav-cta-num">0690 50 44 55</span>
+      <span class="nav-cta-num" style="display:none"></span>
+      <span class="nav-cta-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 4h3l2 5-2 1a12 12 0 0 0 6 6l1-2 5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/>
+        </svg>
+      </span>
+    </a>
+  </nav>
+</header>
+
+<main id="top">
+
+<!-- ================================ HERO ================================ -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow reveal"><span class="dot"></span>Disponible aujourd'hui en Guadeloupe</span>
+        <h1 id="hero-title" class="reveal d1">Besoin d'aide dans <em>ton</em> <span class="u">quotidien&nbsp;?</span></h1>
+        <p class="hero-lead reveal d2">
+          Livraison de courses, dépannage express et aide aux personnes sur toute la Guadeloupe.
+          Une femme sérieuse, rapide et de confiance pour te simplifier la vie — de Pointe-à-Pitre à Basse-Terre.
+        </p>
+
+        <div class="cta-row reveal d3">
+          <a class="btn btn-primary" href="#contact">
+            Demander un devis gratuit
+            <span class="btn-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14"/><path d="m13 5 7 7-7 7"/>
+              </svg>
+            </span>
+          </a>
+          <a class="btn btn-wa" href="https://wa.me/590690504455?text=Bonjour%2C%20je%20souhaite%20un%20devis%20pour%20une%20aide%20%C3%A0%20domicile." target="_blank" rel="noopener">
+            Me contacter sur WhatsApp
+            <span class="btn-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+                <path d="M20.5 3.5A10 10 0 0 0 3.6 17.1L2 22l5.1-1.6a10 10 0 0 0 13.4-16.9ZM12 20a8 8 0 0 1-4.1-1.1l-.3-.2-3 1 1-2.9-.2-.3A8 8 0 1 1 12 20Zm4.5-5.9c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8.9-.1.2-.3.2-.5.1a6.5 6.5 0 0 1-3.3-2.8c-.2-.4.3-.4.7-1.1.1-.1.1-.3 0-.4 0-.1-.6-1.5-.9-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2 0 1.3 1 2.6 1.1 2.8.1.2 1.9 2.9 4.6 4 .6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2 0 0-.2-.1-.4-.2Z"/>
+              </svg>
+            </span>
+          </a>
+        </div>
+
+        <div class="hero-proof reveal d4">
+          <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Intervention sous 1h</div>
+          <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg> Sérieuse &amp; de confiance</div>
+          <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s-7-5.5-7-12a7 7 0 0 1 14 0c0 6.5-7 12-7 12Z"/><circle cx="12" cy="10" r="2.5"/></svg> Toute la Guadeloupe</div>
+        </div>
+      </div>
+
+      <!-- HERO VISUAL -->
+      <div class="hero-visual reveal d2">
+        <div class="hv-frame">
+          <div class="hv-photo">
+            <img src="images/hero.jpg" alt="Aide à domicile en Guadeloupe — accompagnement chaleureux d'une personne âgée" loading="eager" decoding="async" />
+            <span class="hv-tag"><span class="d"></span>Disponible aujourd'hui</span>
+          </div>
+        </div>
+
+        <div class="hv-card hv-1" aria-hidden="true">
+          <span class="ic">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 4h2l2.5 12a2 2 0 0 0 2 1.6h7.2a2 2 0 0 0 2-1.4L21 8H6"/>
+              <circle cx="10" cy="21" r="1.4"/><circle cx="17" cy="21" r="1.4"/>
+            </svg>
+          </span>
+          <div><b>Courses livrées</b><span>14 articles · Le Gosier</span></div>
+        </div>
+
+        <div class="hv-card hv-2" aria-hidden="true">
+          <span class="ic">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/>
+            </svg>
+          </span>
+          <div><b>Intervention sous 1h</b><span>7j/7 · toute la Guadeloupe</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================================ SERVICES ================================ -->
+<section id="services" aria-labelledby="services-title">
+  <div class="wrap">
+    <header class="sec-head">
+      <span class="eyebrow reveal">Services · 3 prestations</span>
+      <h2 id="services-title" class="reveal d1">Mes services d'aide à domicile en Guadeloupe</h2>
+      <p class="reveal d2">
+        Tout ce dont tu as besoin pour te simplifier la vie au quotidien. De la livraison de courses à l'accompagnement
+        des personnes âgées, j'interviens rapidement à Pointe-à-Pitre, Le Gosier, Baie-Mahault, Sainte-Anne, Le Moule,
+        Petit-Bourg et partout en Grande-Terre comme en Basse-Terre.
+      </p>
+    </header>
+
+    <div class="bento">
+
+      <article class="svc svc-1 reveal d1">
+        <div class="svc-inner">
+          <span class="svc-badge">01 · Courses</span>
+          <h3>Livraison de courses à domicile en Guadeloupe</h3>
+          <p>
+            Je fais tes courses dans le magasin de ton choix et te les livre directement chez toi — supermarché,
+            marché local, pharmacie. Idéal quand tu es occupé(e), à mobilité réduite ou simplement pas motivé(e)
+            à prendre la voiture.
+          </p>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-10" stroke-linecap="round" stroke-linejoin="round"/></svg>Supermarchés, marchés, pharmacies</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-10" stroke-linecap="round" stroke-linejoin="round"/></svg>Liste papier, SMS ou WhatsApp acceptée</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-10" stroke-linecap="round" stroke-linejoin="round"/></svg>Livraison soignée, frigo rangé si besoin</li>
+          </ul>
+          <div class="svc-art">
+            <img src="images/livraison.jpg" alt="Livraison de courses à domicile en Guadeloupe — sac de provisions fraîches" loading="lazy" decoding="async" />
+          </div>
+        </div>
+      </article>
+
+      <article class="svc svc-2 reveal d2">
+        <div class="svc-inner">
+          <span class="svc-badge">02 · Express</span>
+          <h3>Dépannage express du quotidien</h3>
+          <p>
+            Un oubli, un imprévu, une course de dernière minute ? Je réponds vite et j'interviens en Guadeloupe
+            souvent sous 1h — récupérer un colis, aller à la pharmacie, déposer un document, attendre le livreur.
+          </p>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-10" stroke-linecap="round" stroke-linejoin="round"/></svg>Intervention rapide sur toute l'île</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-10" stroke-linecap="round" stroke-linejoin="round"/></svg>Colis, pharmacie, attente du livreur</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-10" stroke-linecap="round" stroke-linejoin="round"/></svg>Démarche administrative simple</li>
+          </ul>
+          <div class="svc-art">
+            <img src="images/depannage.jpg" alt="Dépannage express à domicile en Guadeloupe — petits travaux et imprévus du quotidien" loading="lazy" decoding="async" />
+          </div>
+        </div>
+      </article>
+
+      <article class="svc svc-3 reveal d3">
+        <div class="svc-inner">
+          <span class="svc-badge">03 · Accompagnement</span>
+          <h3>Aide aux personnes âgées et à mobilité réduite</h3>
+          <p>
+            Un accompagnement chaleureux pour nos aînés et les personnes ayant besoin d'un coup de main :
+            présence, rendez-vous médicaux, courses, petite administration, discussion autour d'un café.
+          </p>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-10" stroke-linecap="round" stroke-linejoin="round"/></svg>Présence, écoute &amp; compagnie</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-10" stroke-linecap="round" stroke-linejoin="round"/></svg>Transport accompagné en fauteuil</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-10" stroke-linecap="round" stroke-linejoin="round"/></svg>Rendez-vous médicaux &amp; sorties</li>
+          </ul>
+          <div class="svc-art">
+            <img src="images/aide.jpg" alt="Aide aux personnes à mobilité réduite en Guadeloupe — accompagnement en fauteuil roulant" loading="lazy" decoding="async" />
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================================ POURQUOI NOUS ================================ -->
+<section class="pourquoi" aria-labelledby="pq-title">
+  <div class="wrap">
+    <header class="sec-head">
+      <span class="eyebrow reveal">Pourquoi moi</span>
+      <h2 id="pq-title" class="reveal d1">Pourquoi choisir mon service à la personne en&nbsp;Guadeloupe&nbsp;?</h2>
+      <p class="reveal d2">
+        Trois engagements simples, respectés à la lettre à chaque mission — que tu habites à Pointe-à-Pitre,
+        au Gosier, à Baie-Mahault ou à Basse-Terre.
+      </p>
+    </header>
+
+    <div class="why-grid">
+      <div class="why-card c1 reveal d1">
+        <span class="why-num"><span></span>01</span>
+        <span class="ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m13 2-9 13h7l-1 7 9-13h-7Z"/></svg>
+        </span>
+        <h3>Rapidité garantie</h3>
+        <p>Un appel, une réponse. J'organise ton intervention en quelques minutes et j'arrive souvent sous 1h sur toute la Grande-Terre et la Basse-Terre.</p>
+      </div>
+
+      <div class="why-card c2 reveal d2">
+        <span class="why-num"><span></span>02</span>
+        <span class="ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg>
+        </span>
+        <h3>Efficacité sans stress</h3>
+        <p>Du briefing jusqu'à la livraison, tout est soigné : liste vérifiée, courses rangées, rendez-vous respectés. Tu reçois un message clair à chaque étape.</p>
+      </div>
+
+      <div class="why-card c3 reveal d3">
+        <span class="why-num"><span></span>03</span>
+        <span class="ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s-7-5.5-7-12a7 7 0 0 1 14 0c0 6.5-7 12-7 12Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+        </span>
+        <h3>Toute la Guadeloupe</h3>
+        <p>Je me déplace dans tout le 971 : Pointe-à-Pitre, Abymes, Le Gosier, Sainte-Anne, Le Moule, Baie-Mahault, Petit-Bourg, Lamentin, Basse-Terre et environs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================ TARIFS ================================ -->
+<section id="tarifs" aria-labelledby="tarifs-title">
+  <div class="wrap">
+    <header class="sec-head">
+      <span class="eyebrow reveal">Tarifs</span>
+      <h2 id="tarifs-title" class="reveal d1">Des tarifs simples et transparents</h2>
+      <p class="reveal d2">
+        Pas de mauvaise surprise : tu sais exactement ce que tu paies. Les prix sont indicatifs et dépendent de
+        la zone (Grande-Terre, Basse-Terre), du volume de courses et de la durée d'accompagnement.
+      </p>
+    </header>
+
+    <div class="pricing">
+
+      <article class="price-card reveal d1">
+        <div class="price-card-inner">
+          <span class="price-label">Livraison de courses</span>
+          <h3>Formule Courses</h3>
+          <div class="price-amount">
+            <span class="from">À partir de</span>
+            <span class="n">15€</span>
+          </div>
+          <div class="price-hr"></div>
+          <ul class="price-feat">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-10" stroke-linecap="round" stroke-linejoin="round"/></svg>1 magasin au choix</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-10" stroke-linecap="round" stroke-linejoin="round"/></svg>Livraison à domicile</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-10" stroke-linecap="round" stroke-linejoin="round"/></svg>Paiement simple, facture claire</li>
+          </ul>
+          <a class="btn btn-outline" href="#contact">Demander un devis <span class="btn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 5 7 7-7 7"/></svg></span></a>
+        </div>
+      </article>
+
+      <article class="price-card featured reveal d2">
+        <div class="price-card-inner">
+          <span class="price-label">Le plus demandé</span>
+          <h3>Dépannage Express</h3>
+          <div class="price-amount">
+            <span class="from">À partir de</span>
+            <span class="n">25€</span>
+          </div>
+          <div class="price-hr"></div>
+          <ul class="price-feat">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-10" stroke-linecap="round" stroke-linejoin="round"/></svg>Intervention prioritaire</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-10" stroke-linecap="round" stroke-linejoin="round"/></svg>Colis, pharmacie, démarches</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-10" stroke-linecap="round" stroke-linejoin="round"/></svg>Compte-rendu par WhatsApp</li>
+          </ul>
+          <a class="btn btn-primary" href="#contact">Réserver maintenant <span class="btn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 5 7 7-7 7"/></svg></span></a>
+        </div>
+      </article>
+
+      <article class="price-card reveal d3">
+        <div class="price-card-inner">
+          <span class="price-label">Aide aux personnes</span>
+          <h3>Formule Accompagnement</h3>
+          <div class="price-amount">
+            <span class="from">À partir de</span>
+            <span class="n">20€</span><span class="u">/heure</span>
+          </div>
+          <div class="price-hr"></div>
+          <ul class="price-feat">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-10" stroke-linecap="round" stroke-linejoin="round"/></svg>Présence, écoute, aide au quotidien</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-10" stroke-linecap="round" stroke-linejoin="round"/></svg>Rendez-vous médicaux accompagnés</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4 10-10" stroke-linecap="round" stroke-linejoin="round"/></svg>Tarif dégressif &gt; 3h</li>
+          </ul>
+          <a class="btn btn-outline" href="#contact">Demander un devis <span class="btn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 5 7 7-7 7"/></svg></span></a>
+        </div>
+      </article>
+
+    </div>
+
+    <p class="tarifs-note reveal d4">* Frais de déplacement selon la zone. Marie-Galante et Les Saintes sur demande.</p>
+  </div>
+</section>
+
+<!-- ================================ AVIS ================================ -->
+<section class="reviews" aria-labelledby="avis-title">
+  <div class="wrap">
+    <header class="sec-head">
+      <span class="eyebrow reveal">Avis clients</span>
+      <h2 id="avis-title" class="reveal d1">Ce que mes client(e)s en Guadeloupe pensent du&nbsp;service</h2>
+      <p class="reveal d2">
+        Des dizaines d'interventions chaque mois sur l'ensemble du 971. Voici quelques retours récents.
+      </p>
+    </header>
+
+    <div class="reviews-grid">
+
+      <article class="review reveal d1">
+        <div class="stars" aria-label="5 étoiles sur 5">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 15 9l8 .8-6 5 2 8-7-4-7 4 2-8-6-5 8-.8Z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 15 9l8 .8-6 5 2 8-7-4-7 4 2-8-6-5 8-.8Z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 15 9l8 .8-6 5 2 8-7-4-7 4 2-8-6-5 8-.8Z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 15 9l8 .8-6 5 2 8-7-4-7 4 2-8-6-5 8-.8Z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 15 9l8 .8-6 5 2 8-7-4-7 4 2-8-6-5 8-.8Z"/></svg>
+        </div>
+        <p class="review-quote">Je travaille tard et je n'ai jamais le temps de faire mes courses. Elle s'en occupe chaque semaine, avec une régularité parfaite. Tout est rangé à mon retour, c'est un vrai bonheur.</p>
+        <div class="review-foot">
+          <div class="avatar a1">ML</div>
+          <div class="review-who"><b>Marie-Lise C.</b><span>Pointe-à-Pitre · cliente depuis 8 mois</span></div>
+        </div>
+      </article>
+
+      <article class="review reveal d2">
+        <div class="stars" aria-label="5 étoiles sur 5">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 15 9l8 .8-6 5 2 8-7-4-7 4 2-8-6-5 8-.8Z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 15 9l8 .8-6 5 2 8-7-4-7 4 2-8-6-5 8-.8Z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 15 9l8 .8-6 5 2 8-7-4-7 4 2-8-6-5 8-.8Z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 15 9l8 .8-6 5 2 8-7-4-7 4 2-8-6-5 8-.8Z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 15 9l8 .8-6 5 2 8-7-4-7 4 2-8-6-5 8-.8Z"/></svg>
+        </div>
+        <p class="review-quote">Ma maman vit seule au Gosier. Sa présence deux après-midi par semaine a tout changé : maman se sent entourée, elle rit à nouveau. Je recommande à toutes les familles.</p>
+        <div class="review-foot">
+          <div class="avatar a2">GB</div>
+          <div class="review-who"><b>Gérard B.</b><span>Le Gosier · famille accompagnée</span></div>
+        </div>
+      </article>
+
+      <article class="review reveal d3">
+        <div class="stars" aria-label="5 étoiles sur 5">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 15 9l8 .8-6 5 2 8-7-4-7 4 2-8-6-5 8-.8Z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 15 9l8 .8-6 5 2 8-7-4-7 4 2-8-6-5 8-.8Z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 15 9l8 .8-6 5 2 8-7-4-7 4 2-8-6-5 8-.8Z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 15 9l8 .8-6 5 2 8-7-4-7 4 2-8-6-5 8-.8Z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 15 9l8 .8-6 5 2 8-7-4-7 4 2-8-6-5 8-.8Z"/></svg>
+        </div>
+        <p class="review-quote">Un dimanche soir, panne d'électricité à Baie-Mahault, pharmacie fermée, bébé malade. Elle a foncé me chercher ce qu'il fallait en 40 min. Je ne l'oublierai jamais.</p>
+        <div class="review-foot">
+          <div class="avatar a3">SL</div>
+          <div class="review-who"><b>Sandra L.</b><span>Baie-Mahault · dépannage express</span></div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================================ CONTACT ================================ -->
+<section id="contact" aria-labelledby="contact-title">
+  <div class="wrap">
+    <header class="sec-head">
+      <span class="eyebrow reveal">Contact</span>
+      <h2 id="contact-title" class="reveal d1">Me contacter pour un devis gratuit</h2>
+      <p class="reveal d2">
+        Appelle directement, écris-moi sur WhatsApp ou laisse-moi un message via le formulaire — je te réponds
+        dans l'heure, 7j/7, sur toute la Guadeloupe.
+      </p>
+    </header>
+
+    <div class="contact-grid">
+
+      <aside class="contact-card reveal d1">
+        <h3>Un appel, et c'est parti.</h3>
+        <p>Explique-moi simplement ton besoin, je m'occupe du reste. Disponible près de chez toi — de Pointe-à-Pitre à Basse-Terre.</p>
+
+        <a class="contact-phone" href="tel:+590690504455">
+          <span class="ic" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 4h3l2 5-2 1a12 12 0 0 0 6 6l1-2 5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/>
+            </svg>
+          </span>
+          <div>
+            <span>Téléphone direct</span>
+            <b>0690 50 44 55</b>
+          </div>
+        </a>
+
+        <a class="btn btn-wa contact-wa" href="https://wa.me/590690504455?text=Bonjour%2C%20je%20souhaite%20un%20devis%20pour%20une%20aide%20%C3%A0%20domicile.">
+          Me contacter sur WhatsApp
+          <span class="btn-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+              <path d="M20.5 3.5A10 10 0 0 0 3.6 17.1L2 22l5.1-1.6a10 10 0 0 0 13.4-16.9ZM12 20a8 8 0 0 1-4.1-1.1l-.3-.2-3 1 1-2.9-.2-.3A8 8 0 1 1 12 20Zm4.5-5.9c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8.9-.1.2-.3.2-.5.1a6.5 6.5 0 0 1-3.3-2.8c-.2-.4.3-.4.7-1.1.1-.1.1-.3 0-.4 0-.1-.6-1.5-.9-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2 0 1.3 1 2.6 1.1 2.8.1.2 1.9 2.9 4.6 4 .6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2 0 0-.2-.1-.4-.2Z"/>
+            </svg>
+          </span>
+        </a>
+
+        <ul class="contact-info-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>Disponible 7j/7 · Lundi au samedi : 7h–20h · Dimanche sur rendez-vous</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s-7-5.5-7-12a7 7 0 0 1 14 0c0 6.5-7 12-7 12Z"/><circle cx="12" cy="10" r="2.5"/></svg><span>Toute la Guadeloupe : Grande-Terre, Basse-Terre, Marie-Galante sur demande</span></li>
+        </ul>
+      </aside>
+
+      <form class="reveal d2" id="contactForm" novalidate>
+        <div class="field-row">
+          <div class="field">
+            <label for="f-nom">Ton prénom</label>
+            <input id="f-nom" name="nom" type="text" placeholder="Ex. Sandrine" required autocomplete="given-name" />
+          </div>
+          <div class="field">
+            <label for="f-tel">Ton téléphone</label>
+            <input id="f-tel" name="tel" type="tel" placeholder="0690 00 00 00" required autocomplete="tel" inputmode="tel" pattern="[0-9+\s().-]{8,}" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="f-msg">En quoi puis-je t'aider&nbsp;?</label>
+          <textarea id="f-msg" name="message" placeholder="Ex. J'aimerais une livraison de courses vendredi matin au Gosier..." required minlength="8"></textarea>
+        </div>
+
+        <div id="feedback" class="form-feedback" role="status" aria-live="polite"></div>
+
+        <div class="form-submit">
+          <small>Réponse sous 1h — 7j/7 · Aucune donnée revendue.</small>
+          <button type="submit" class="btn btn-primary">
+            Envoyer ma demande
+            <span class="btn-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m5 12 14-8-6 18-2-8-6-2Z"/>
+              </svg>
+            </span>
+          </button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ================================ FOOTER ================================ -->
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 7h16l-1.5 11a2 2 0 0 1-2 1.8H7.5a2 2 0 0 1-2-1.8Z"/>
+              <path d="M8 7a4 4 0 0 1 8 0"/>
+            </svg>
+          </span>
+          <span>Aide à Domicile · Guadeloupe</span>
+        </div>
+        <p>Service à la personne en Guadeloupe (971) : livraison de courses à domicile, dépannage express et aide aux personnes âgées. Sérieuse, rapide et de confiance — partout sur l'île.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Livraison de courses</a></li>
+          <li><a href="#services">Dépannage express</a></li>
+          <li><a href="#services">Aide aux personnes</a></li>
+          <li><a href="#tarifs">Tarifs</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+590690504455">0690 50 44 55</a></li>
+          <li><a href="https://wa.me/590690504455" target="_blank" rel="noopener">WhatsApp direct</a></li>
+          <li><a href="#contact">Devis gratuit</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© <span id="y"></span> Aide à Domicile Guadeloupe — Tous droits réservés.</span>
+      <span>SIRET (fictif) 000 000 000 00000 · Mentions légales · Politique de confidentialité</span>
+    </div>
+  </div>
+</footer>
+
+<a class="sticky-wa" href="https://wa.me/590690504455?text=Bonjour%2C%20je%20souhaite%20un%20devis%20pour%20une%20aide%20%C3%A0%20domicile." aria-label="Contacter sur WhatsApp" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M20.5 3.5A10 10 0 0 0 3.6 17.1L2 22l5.1-1.6a10 10 0 0 0 13.4-16.9ZM12 20a8 8 0 0 1-4.1-1.1l-.3-.2-3 1 1-2.9-.2-.3A8 8 0 1 1 12 20Zm4.5-5.9c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8.9-.1.2-.3.2-.5.1a6.5 6.5 0 0 1-3.3-2.8c-.2-.4.3-.4.7-1.1.1-.1.1-.3 0-.4 0-.1-.6-1.5-.9-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2 0 1.3 1 2.6 1.1 2.8.1.2 1.9 2.9 4.6 4 .6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2 0 0-.2-.1-.4-.2Z"/>
+  </svg>
+  <span class="lbl">WhatsApp</span>
+</a>
+
+<script>
+  // Année footer
+  document.getElementById('y').textContent = new Date().getFullYear();
+
+  // Reveal on scroll (IntersectionObserver)
+  (function () {
+    var els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(function (e) { e.classList.add('in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+    els.forEach(function (e) { io.observe(e); });
+  })();
+
+  // Magnetic buttons (léger — ignoré sur mobile / reduce-motion)
+  (function () {
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var coarse = window.matchMedia('(pointer: coarse)').matches;
+    if (reduce || coarse) return;
+    document.querySelectorAll('.btn').forEach(function (btn) {
+      btn.addEventListener('pointermove', function (e) {
+        var r = btn.getBoundingClientRect();
+        var x = (e.clientX - r.left - r.width / 2) * 0.08;
+        var y = (e.clientY - r.top - r.height / 2) * 0.08;
+        btn.style.transform = 'translate(' + x + 'px,' + y + 'px)';
+      });
+      btn.addEventListener('pointerleave', function () {
+        btn.style.transform = '';
+      });
+    });
+  })();
+
+  // Form handling (sans backend — démo commerciale)
+  (function () {
+    var form = document.getElementById('contactForm');
+    var fb = document.getElementById('feedback');
+    if (!form) return;
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      fb.className = 'form-feedback';
+      fb.textContent = '';
+
+      var nom = form.nom.value.trim();
+      var tel = form.tel.value.trim();
+      var msg = form.message.value.trim();
+
+      if (nom.length < 2 || tel.length < 8 || msg.length < 8) {
+        fb.className = 'form-feedback err';
+        fb.textContent = 'Merci de remplir les 3 champs — un prénom, un numéro joignable et un petit message.';
+        return;
+      }
+
+      // Préparation redirection WhatsApp
+      var text = 'Bonjour, je suis ' + nom + ' (' + tel + '). ' + msg;
+      var url = 'https://wa.me/590690504455?text=' + encodeURIComponent(text);
+
+      fb.className = 'form-feedback ok';
+      fb.textContent = 'Message prêt ! Je t\'ouvre WhatsApp pour l\'envoyer directement…';
+
+      setTimeout(function () {
+        window.open(url, '_blank', 'noopener');
+        form.reset();
+      }, 700);
+    });
+  })();
+</script>
+
+</body>
+</html>
